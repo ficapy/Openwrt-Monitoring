@@ -4,11 +4,11 @@
 CURRENT_USER=$(whoami)
 
 # Set the Router IP address
-ROUTER_IP="10.0.5.1"
+ROUTER_IP="192.168.9.1"
 
 # Check if the ROUTER_IP is set to the default value
-if [ "$ROUTER_IP" == "10.0.5.1" ]; then
-    read -p "Is 10.0.5.1 the correct Router IP? (Y/n): " correct_ip
+if [ "$ROUTER_IP" == "192.168.9.1" ]; then
+    read -p "192.168.9.1 the correct Router IP? (Y/n): " correct_ip
 
     if [[ ! $correct_ip =~ ^[Yy]$ ]]; then
         echo "Please update the script with the correct Router_IP variable and run it again."
@@ -20,28 +20,12 @@ fi
 # Check if Docker is installed
 if ! command -v docker &> /dev/null; then
     echo "Docker is not installed."
-    read -p "Do you want to install Docker? (Y/n): " install_docker
-
-    if [[ $install_docker =~ ^[Yy]$ ]]; then
-        # Install Docker using the official script
-        curl -fsSL https://get.docker.com -o get-docker.sh
-        sudo sh get-docker.sh
-        echo "Please wait . . . . "
-        sleep 5
-        echo "running apt update and apt install docker-compose"
-        sudo apt update
-        sudo apt install docker-compose -y
-        # Create a Docker network
-        sudo docker network create internal
-    else
-        echo "Docker installation aborted. Continuing with the script."
-        # No exit here, script will continue
-    fi
+    exit 1
 fi
 
 
 # Clone the repository
-git clone https://github.com/benisai/Openwrt-Monitoring.git
+git clone https://github.com/ficapy/Openwrt-Monitoring.git
 # Cleaning up files that are not needed on the docker server
 rm -r ./Openwrt-Monitoring/Python
 rm -r ./Openwrt-Monitoring/Router

@@ -9,7 +9,7 @@ log_file="/tmp/wan_monitor.log"
 
 while true; do
     # Ping DNS server
-    ping -c 1 8.8.8.8 2>&1 > /dev/null
+    ping -c 1 119.29.29.29 2>&1 > /dev/null
 
     # Check if ping was successful
     if [ $? -eq 0 ]; then
@@ -19,12 +19,12 @@ while true; do
             elapsed_time=$((end_time - start_time))
 
             # Only write to the log file if the outage lasted longer than 5 seconds
-            if [ $elapsed_time -ge 10 ]; then
+            if [ $elapsed_time -ge 5 ]; then
                 upmsg="$(date '+%Y-%m-%d-%H:%M:%S') up $elapsed_time"
                 sed -i "s/placeholder/$upmsg/g" $log_file
-            fi
 
-            internet_working=1
+                internet_working=1
+            fi
         fi
     else
         # Internet is not working (iid)

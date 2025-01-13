@@ -87,7 +87,7 @@ fi
 
  #Copying scripts and lua files to router
  echo 'Copying shell scripts and files from Github to Router'
- wget https://raw.githubusercontent.com/ficapy/Openwrt-Monitoring/main/Router/scripts/speedtest.sh -O /usr/bin/speedtest.sh && chmod +x /usr/bin/speedtest.sh
+#  wget https://raw.githubusercontent.com/ficapy/Openwrt-Monitoring/main/Router/scripts/speedtest.sh -O /usr/bin/speedtest.sh && chmod +x /usr/bin/speedtest.sh
  wget https://raw.githubusercontent.com/ficapy/Openwrt-Monitoring/main/Router/scripts/15-second-script.sh -O /usr/bin/15-second-script.sh && chmod +x /usr/bin/15-second-script.sh
  wget https://raw.githubusercontent.com/ficapy/Openwrt-Monitoring/main/Router/scripts/1-minute-script.sh -O /usr/bin/1-minute-script.sh && chmod +x /usr/bin/1-minute-script.sh
  wget https://raw.githubusercontent.com/ficapy/Openwrt-Monitoring/main/Router/scripts/1-hour-script.sh -O /usr/bin/1-hour-script.sh && chmod +x /usr/bin/1-hour-script.sh
@@ -102,7 +102,7 @@ fi
 
  echo 'Copying custom LUA Files from GIT to router'
  wget https://raw.githubusercontent.com/ficapy/Openwrt-Monitoring/main/Router/lua/nat_traffic.lua -O /usr/lib/lua/prometheus-collectors/nat_traffic.lua
- wget https://raw.githubusercontent.com/ficapy/Openwrt-Monitoring/main/Router/lua/speedtest.lua -O /usr/lib/lua/prometheus-collectors/speedtest.lua
+#  wget https://raw.githubusercontent.com/ficapy/Openwrt-Monitoring/main/Router/lua/speedtest.lua -O /usr/lib/lua/prometheus-collectors/speedtest.lua
  wget https://raw.githubusercontent.com/ficapy/Openwrt-Monitoring/main/Router/lua/wanip.lua -O /usr/lib/lua/prometheus-collectors/wanip.lua
  wget https://raw.githubusercontent.com/ficapy/Openwrt-Monitoring/main/Router/lua/packetloss.lua -O /usr/lib/lua/prometheus-collectors/packetloss.lua
  wget https://raw.githubusercontent.com/ficapy/Openwrt-Monitoring/main/Router/lua/new_device.lua -O /usr/lib/lua/prometheus-collectors/new_device.lua
